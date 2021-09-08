@@ -1,32 +1,17 @@
 def show_min_max(test_list):
-    print("min: " + str(find_min(test_list)))
-    print("max: " + str(find_max(test_list)))
+    print("min:", min(get_int_list(test_list)))
+    print("max:", max(get_int_list(test_list)))
 
 
-def find_min(list):
-    test_min = None
-    for item in list:
-        number = get_int(item)
-        if not bool(number):
-            continue
-        elif not bool(test_min):
-            test_min = number
-        elif number < test_min:
-            test_min = number
-    return test_min
-
-
-def find_max(test_list):
-    test_max = None
+def get_int_list(test_list):
+    result_list = []
     for item in test_list:
         number = get_int(item)
         if not bool(number):
             continue
-        elif not bool(test_max):
-            test_max = number
-        elif number > test_max:
-            test_max = number
-    return test_max
+        else:
+            result_list.append(number)
+    return result_list
 
 
 def get_int(item):
