@@ -8,10 +8,10 @@ import list_directory_util
 def main():
     print("==========task#1")
     print("==========task#1.1 get int list via for loop")
-    assert list_filter.get_int_list_via_for([1, 2, 'a', 'b']) == [1, 2]
+    assert list_filter.get_int_list_via_for([0, 1, 2, 'a', 'b']) == [0, 1, 2]
 
     print("==========task#1.2 get int list via list comprehensions")
-    assert list_filter.get_int_list_via_comprehensions([1, 2, 'a', 'b']) == [1, 2]
+    assert list_filter.get_int_list_via_comprehensions([0, 1, 2, 'a', 'b']) == [0, 1, 2]
 
     print("==========task#1.3 get int list via lambda")
     assert list_filter.get_int_list_via_lambda([1, 2, 'a', 'b']) == [1, 2]
@@ -37,7 +37,7 @@ def main():
 
     print("==========task#4 find file or directory util")
     print(find_util.find('C:\\WORK\\Projects\\Python\\TA.Python.Mentoring\\src\\module_2\\', '*.json', 'f'))
-    print(find_util.find('C:\\WORK\\Projects\\Python\\TA.Python.Mentoring\\src\\module_2\\', 'res*', 'd'))
+    print(find_util.find('C:\\WORK\\Projects\\Python\\TA.Python.Mentoring\\src\\module_2\\', 're*', 'd'))
 
     print("==========task#5 directory list util")
     print(list_directory_util.list_directory_files('C:\\WORK\\Projects\\Python\\TA.Python.Mentoring\\src\\module_2\\'))
