@@ -6,8 +6,7 @@ def read_csv_file(filename):
     results = {"cars": []}
     with open(filename, newline='') as file:
         reader = csv.DictReader(file)
-        for row in reader:
-            results["cars"].append(row)
+        [results["cars"].append(row) for row in reader]
     return results
 
 

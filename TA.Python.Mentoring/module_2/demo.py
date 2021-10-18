@@ -10,7 +10,7 @@ def main():
     assert list_filter.get_int_list_via_for([1, 2, 'a', 'b']) == [1, 2]
 
     print("==========task#1.2 get int list via list comprehensions")
-    assert list_filter.get_int_list_via_comprehensions([1, 2, 'a', 'b']) == [1, 2]
+    assert list_filter.get_int_list_via_comprehensions([1, 2, 'a', 'b', 1.3]) == [1, 2, 1]
 
     print("==========task#1.3 get int list via lambda")
     assert list_filter.get_int_list_via_lambda([1, 2, 'a', 'b']) == [1, 2]

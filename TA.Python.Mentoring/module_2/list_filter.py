@@ -1,21 +1,16 @@
 def get_int(item):
     try:
         if item is not None:
-            return int(item)
-    except ValueError:
-        try:
             return int(float(item))
-        except ValueError:
-            return
+    except ValueError:
+        return
 
 
 def get_int_list_via_for(test_list):
     result_list = []
     for item in test_list:
         number = get_int(item)
-        if not bool(number):
-            continue
-        else:
+        if number:
             result_list.append(number)
     return result_list
 
