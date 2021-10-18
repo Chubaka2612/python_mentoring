@@ -1,7 +1,6 @@
 from abc import ABC
-
-from .gender import Sex
 from .log_configurator import get_logger
+from .gender import Sex
 
 
 class Person(ABC):
@@ -9,8 +8,8 @@ class Person(ABC):
 
     def __init__(self, name, age, sex=None, address=None):
         self.name = name
-        self.age = age
-        self.sex = sex
+        self.__age = age
+        self.__sex = sex
         self.address = address
 
     # @abstractmethod
@@ -26,7 +25,7 @@ class Person(ABC):
         if age in range(1, 100):
             self.__age = age
         else:
-            raise TypeError('Age must be in range 1 .. 100')
+            raise ValueError('Age must be in range 1 .. 100')
 
     @property
     def sex(self):
@@ -42,9 +41,6 @@ class Person(ABC):
     def __eq__(self, obj):
         return isinstance(obj, Person) and (self.name, self.sex, self.address, self.age) \
                == (obj.name, obj.__sex, obj.address, obj.age)
-
-    def __hash__(self):
-        return hash((self.name, self.age, self.sex, self.address))
 
     def __str__(self):
         return f"name: {self.name}, age: {self.__age}, sex: {self.__sex}, address: {self.address}"

@@ -14,6 +14,10 @@ class Company:
         self.employees = list()
         self.__money = 1000
 
+    @property
+    def money(self):
+        return self.__money
+
     def add_employee(self, my_employee):
         if not isinstance(my_employee, (Manager, Engineer)):
             raise TypeError('Employee must be either a Manager or an Engineer')
@@ -38,7 +42,7 @@ class Company:
         return my_employee in self.employees
 
     def __is_about_to_bankrupt(self):
-        return self.__money <= 100
+        return self.__money <= self.critical_budget
 
     def go_bankrupt(self):
         if self.__is_about_to_bankrupt():
@@ -81,8 +85,7 @@ class Company:
         if not self.__is_about_to_bankrupt():
             if len(self.employees) * Compensation.BONUS.value < self.critical_budget:
                 self.log.info('Party time! All employees get bonuses')
-                for my_employee in self.employees:
-                    my_employee.bonus_to_salary(Compensation.BONUS.value)
+                [my_employee.bonus_to_salary(Compensation.BONUS.value) for my_employee in self.employees]
             else:
                 self.log.error("Can not make a party. It can lead to bankrupt")
         else:

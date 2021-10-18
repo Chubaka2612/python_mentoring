@@ -8,7 +8,6 @@ log = get_logger('demo')
 
 def main():
     fruits_company = Company('Fruits', address='Ocean street, 1')
-    print(fruits_company)
 
     # add some employees
     alex = Engineer('Alex', 55)
@@ -21,9 +20,8 @@ def main():
     fruits_company.make_a_party()
 
     vp = CountryHead("Alex", 23)
+    vp2 = CountryHead()
     log.info(vp)
-    vp2 = CountryHead("Alex2", 33)
-    log.info(vp2)
 
 
 main()

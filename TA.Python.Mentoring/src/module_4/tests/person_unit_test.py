@@ -27,11 +27,11 @@ def invalid_age_param(request):
 @pytest.mark.smoke
 def test_when_invalid_age_provided_then_error_occurred(invalid_age_param):
     test_person = get_valid_person()
-    with pytest.raises(TypeError):
+    with pytest.raises(ValueError):
         test_person.age = invalid_age_param
 
 
-@pytest.fixture(scope="function", params=[1, 55, 10])
+@pytest.fixture(scope="function", params=[1, 55, 99])
 def valid_age_param(request):
     return request.param
 

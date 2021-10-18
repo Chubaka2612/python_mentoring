@@ -1,5 +1,6 @@
 import abc
 from .person import Person
+from .salary import Compensation
 
 
 class Employee(Person):
@@ -20,7 +21,7 @@ class Employee(Person):
 
     def join_company(self, company):
         if self.is_employed:
-            raise TypeError('I can not join one more domain. I do not want to burnout')
+            raise ValueError('I can not join one more domain. I do not want to burnout')
         self.company = company
         company.add_employee(self)
         self.log.info(f"Hooray I have got a job at domain '{company.name}'")
@@ -34,20 +35,20 @@ class Employee(Person):
             self.log.info(f"It's time to go forward. I am leaving a domain '{self.company.name}'")
             self.company.notify_im_leaving()
         else:
-            raise TypeError("I am not employed and can't leave any domain")
+            raise ValueError("I am not employed and can't leave any domain")
 
     def put_money_into_my_wallet(self, amount):
         if self.is_employed:
-            if amount < 0 or amount > 1000:
-                raise TypeError('Money must be a positive number in range of 0 .. 1000')
+            if amount < 0 or amount > self.company.money:
+                raise ValueError('Money must be a positive number in range of 0 .. 1000')
             self.log.info("Hooray I have got some money")
             self.__money += amount
         else:
-            raise TypeError("I am not employed and can't get money")
+            raise ValueError("I am not employed and can't get money")
 
     def bonus_to_salary(self):
         self.log.info(f"I have got bonuses from my lovely domain '{self.company.name}'")
-        self.__money += 5
+        self.__money += Compensation.BONUS
 
     def show_money(self):
         self.log.info(f"Current budget: {self.__money}")

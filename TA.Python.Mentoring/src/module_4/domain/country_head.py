@@ -12,7 +12,7 @@ def singleton(class_):
         if class_ not in instances:
             instances[class_] = class_(*args, **kwargs)
         else:
-            log.info("CountryHead already exists")
+            raise ValueError("CountryHead already exists")
         return instances[class_]
 
     return get_instance
