@@ -2,7 +2,7 @@ import sys
 import logging
 
 
-def get_logger(name, file_level, console_level, file='log/log.txt'):
+def get_logger(name, file_level, console_level, file='log.txt'):
     log = logging.getLogger(name)
     log.setLevel(logging.DEBUG)
 
