@@ -1,3 +1,0 @@
-[console_scripts]
-module_3 = sources.demo:main
-
