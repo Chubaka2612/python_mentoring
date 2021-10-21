@@ -1,0 +1,11 @@
+setup.py
+module_3.egg-info/PKG-INFO
+module_3.egg-info/SOURCES.txt
+module_3.egg-info/dependency_links.txt
+module_3.egg-info/entry_points.txt
+module_3.egg-info/not-zip-safe
+module_3.egg-info/top_level.txt
+sources/__init__.py
+sources/demo.py
+sources/log_configurator.py
+sources/module_finder.py
