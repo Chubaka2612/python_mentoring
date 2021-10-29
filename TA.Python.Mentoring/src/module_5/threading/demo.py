@@ -1,6 +1,6 @@
 
 import file_helper
-from module_5 import url_validator
+from module_5.threading import url_validator
 
 
 def main():
